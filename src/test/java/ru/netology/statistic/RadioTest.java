@@ -7,7 +7,7 @@ public class RadioTest {
     @Test
     public void shouldSetStation(){
 
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(8);
         int expected = 8;
         int actual = radio.getCurrentStation();
@@ -18,7 +18,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetStationMaxLimit(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(10);
         int expected = 0;
@@ -28,7 +28,7 @@ public class RadioTest {
     }
     @Test
     public void shouldSetStationMinLimit(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(-1);
         int expected = 0;
@@ -38,7 +38,7 @@ public class RadioTest {
     }
     @Test
     public void nextStation(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(5);
         radio.nextStation();
@@ -49,7 +49,7 @@ public class RadioTest {
     }
     @Test
     public void nextStationHighLimit(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(9);
         radio.nextStation();
@@ -60,7 +60,7 @@ public class RadioTest {
     }
     @Test
     public void prevStation(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(4);
         radio.prevStation();
@@ -71,7 +71,7 @@ public class RadioTest {
     }
     @Test
     public void prevStationMinLimit(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(0);
         radio.prevStation();
@@ -82,7 +82,7 @@ public class RadioTest {
     }
     @Test
     public void shouldSetVolume(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
 
         radio.setVolume(15);
@@ -93,7 +93,7 @@ public class RadioTest {
     }
     @Test
     public void shouldSetVolumeMinLimit(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
 
         radio.setVolume(-1);
@@ -104,7 +104,7 @@ public class RadioTest {
     }
     @Test
     public void shouldSetVolumeMaxLimit(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
 
         radio.setVolume(101);
@@ -115,7 +115,7 @@ public class RadioTest {
     }
     @Test
     public void shouldIncreaseVolume(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setVolume(67);
         radio.increaseVolume();
         int expected = 68;
@@ -124,7 +124,7 @@ public class RadioTest {
     }
     @Test
     public void shouldIncreaseVolumeMaxLimit(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setVolume(100);
         radio.increaseVolume();
         int expected = 100;
@@ -135,7 +135,7 @@ public class RadioTest {
 
     @Test
     public void shouldDecreaseVolume(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setVolume(45);
         radio.decreaseVolume();
         int expected = 44;
@@ -144,7 +144,7 @@ public class RadioTest {
     }
     @Test
     public void shouldDecreaseVolumeMinLimit(){
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setVolume(0);
         radio.decreaseVolume();
         int expected = 0;
