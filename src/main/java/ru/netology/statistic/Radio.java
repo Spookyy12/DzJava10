@@ -1,48 +1,58 @@
 package ru.netology.statistic;
 
 public class Radio {
-    public int stationNumber;
-
-    public int getStationNumber() {
-        return stationNumber;
+    private int currentStation;
+    private int currentVolume;
+    public int getCurrentStation() {
+        return currentStation;
     }
-
-    public void setStationNumber(int newStationNumber) {
-        if (newStationNumber > 9) {
-            newStationNumber = 0;
+    public void setCurrentStation(int currentStation) {
+        if (currentStation < 0) {
             return;
         }
-        if (newStationNumber < 0) {
-            newStationNumber = 9;
-
+        if (currentStation > 9) {
+            return;
         }
-        stationNumber = newStationNumber;
-
+        this.currentStation = currentStation;
     }
-
-    public int volume;
-
+    public void nextStation() {
+        if (currentStation < 9) {
+            currentStation++;
+            return;
+        }
+        currentStation = 0;
+    }
+    public void prevStation() {
+        if (currentStation > 0) {
+            currentStation--;
+            return;
+        }
+        currentStation = 9;
+    }
     public int getVolume() {
-        return volume;
+        return currentVolume;
     }
-
-    public void setIncreaseVolume(int newVolume) {
-        if (newVolume < 100) {
-            newVolume = newVolume + 1;
+    public void setVolume(int currentVolume) {
+        if (currentVolume < 0 ){
+            return;
         }
-        if (newVolume > 100){
-            newVolume = 100;
+        if (currentVolume > 100){
+            currentVolume = 100;
         }
-        volume = newVolume;
+        this.currentVolume = currentVolume;
     }
-
-    public void setDecreaseVolume(int newVolume) {
-        if (newVolume > 0) {
-            newVolume = newVolume - 1;
+    public void increaseVolume() {
+        if(currentVolume < 100){
+            currentVolume++;
+            return;
         }
-        if (newVolume < 0) {
-            newVolume = 0;
+        currentVolume = 100;
+    }
+    public void decreaseVolume() {
+        if(currentVolume > 0){
+            currentVolume--;
+            return;
         }
-        volume = newVolume;
+        currentVolume = 0;
     }
 }
