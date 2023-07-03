@@ -4,10 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+
     @Test
     public void shouldSetStation() {
 
         Radio radio = new Radio(9);
+
         radio.setCurrentStation(8);
         int expected = 8;
         int actual = radio.getCurrentStation();
@@ -88,7 +90,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolume() {
-        Radio radio = new Radio(100);
+        Radio radio = new Radio();
 
 
         radio.setVolume(15);
@@ -100,7 +102,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeMinLimit() {
-        Radio radio = new Radio(10);
+        Radio radio = new Radio();
 
 
         radio.setVolume(-1);
@@ -112,10 +114,10 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeMaxLimit() {
-        Radio radio = new Radio(100);
+        Radio radio = new Radio();
 
 
-        radio.setVolume(101);
+        radio.setVolume(1501);
         int expected = 100;
         int actual = radio.getVolume();
 
@@ -124,7 +126,7 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseVolume() {
-        Radio radio = new Radio(100);
+        Radio radio = new Radio();
         radio.setVolume(67);
         radio.increaseVolume();
         int expected = 68;
@@ -134,7 +136,7 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseVolumeMaxLimit() {
-        Radio radio = new Radio(100);
+        Radio radio = new Radio();
         radio.setVolume(100);
         radio.increaseVolume();
         int expected = 100;
@@ -145,7 +147,7 @@ public class RadioTest {
 
     @Test
     public void shouldDecreaseVolume() {
-        Radio radio = new Radio(100);
+        Radio radio = new Radio();
         radio.setVolume(45);
         radio.decreaseVolume();
         int expected = 44;
@@ -155,7 +157,7 @@ public class RadioTest {
 
     @Test
     public void shouldDecreaseVolumeMinLimit() {
-        Radio radio = new Radio(100);
+        Radio radio = new Radio();
         radio.setVolume(0);
         radio.decreaseVolume();
         int expected = 0;
